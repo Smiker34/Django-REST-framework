@@ -5,8 +5,7 @@ from .models import Project, TODO
 
 
 class ProjectModelSerializer(ModelSerializer):
-    # В расскомментированном варианте более коректное отображение (не id), но нет полей ввода.
-    # Я писал с этим преподавателю, но он просто скинул репозиторий с готовым заданием, где всё также.
+    # Всё ещё не разобрался с POST
     # Users = StringRelatedField(many=True)
     # Link = HyperlinkedRelatedField(view_name='Link', read_only=True)
 
@@ -16,7 +15,7 @@ class ProjectModelSerializer(ModelSerializer):
 
 
 class TODOModelSerializer(ModelSerializer):
-    # Здесь тоже самое
+    # Всё ещё не разобрался с POST
     # project = StringRelatedField()
     # creator = StringRelatedField()
 
