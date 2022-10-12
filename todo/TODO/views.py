@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import status
+from rest_framework import status, permissions
 from rest_framework.renderers import JSONRenderer, BrowsableAPIRenderer
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
@@ -15,6 +15,7 @@ class ProjectPagination(PageNumberPagination):
 
 class ProjectModelViewSet(ModelViewSet):
     renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
+    permission_classes = [permissions.IsAuthenticated]
     queryset = Project.objects.all()
     serializer_class = ProjectModelSerializer
     pagination_class = ProjectPagination
@@ -32,6 +33,7 @@ class ToDoPagination(PageNumberPagination):
 
 
 class TODOModelViewSet(ModelViewSet):
+    permission_classes = [permissions.IsAuthenticated]
     queryset = TODO.objects.all()
     serializer_class = TODOModelSerializer
     pagination_class = ToDoPagination
