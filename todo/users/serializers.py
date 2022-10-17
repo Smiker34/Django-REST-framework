@@ -2,11 +2,11 @@ from dataclasses import fields
 from rest_framework.serializers import ModelSerializer
 
 
-from .models import User
+from .models import Users
 
 
 class UserModelSerializer(ModelSerializer):
 
     class Meta:
-        model = User
+        model = Users
         fields = ['first_name', 'last_name', 'birthday', 'email']

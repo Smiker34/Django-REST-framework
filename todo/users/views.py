@@ -2,7 +2,7 @@ from re import T
 from django.shortcuts import render
 from rest_framework import mixins, viewsets, permissions
 
-from .models import User
+from .models import Users
 from .serializers import UserModelSerializer
 
 
@@ -11,5 +11,5 @@ class UserModelViewSet(mixins.ListModelMixin,
                        mixins.UpdateModelMixin,
                        viewsets.GenericViewSet):
     permission_classes = [permissions.IsAuthenticated]
-    queryset = User.objects.all()
+    queryset = Users.objects.all()
     serializer_class = UserModelSerializer
