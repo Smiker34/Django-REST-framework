@@ -27,6 +27,15 @@ class Query(graphene.ObjectType):
 
     def resolve_all_projects(root, info):
         return Project.objects.all()
+        
+    all_Users = graphene.List(UsersType)
 
+    def resolve_all_users(root, info):
+        return Users.objects.all()
+
+    all_TODO = graphene.List(TODOType)
+
+    def resolve_all_TODO(root, info):
+        return TODO.objects.all()
 
 schema = graphene.Schema(query=Query)
