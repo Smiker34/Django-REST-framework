@@ -35,7 +35,7 @@ class App extends React.Component {
     const headers = this.get_headers()
     const data = { Title: title, Link: link, Users: users }
 
-    axios.post(`http://127.0.0.1:8000/api/Project/`, data, { headers })
+    axios.post(`http://95.163.243.80:8080/api/Project/`, data, { headers })
       .then(response => {
         this.load_data()
       }).catch(error => console.log(error))
@@ -45,7 +45,7 @@ class App extends React.Component {
     const headers = this.get_headers()
     const data = { project: project, note: note, creator: creator }
 
-    axios.post(`http://127.0.0.1:8000/api/TODO/`, data, { headers })
+    axios.post(`http://95.163.243.80:8080/api/TODO/`, data, { headers })
       .then(response => {
         this.load_data()
       }).catch(error => console.log(error))
@@ -54,7 +54,7 @@ class App extends React.Component {
   delete_project(id) {
     const headers = this.get_headers()
 
-    axios.delete(`http://127.0.0.1:8000/api/Project/${id}`, { headers })
+    axios.delete(`http://95.163.243.80:8080/api/Project/${id}`, { headers })
       .then(response => {
         this.load_data()
       }).catch(error => console.log(error))
@@ -63,7 +63,7 @@ class App extends React.Component {
   delete_todo(id) {
     const headers = this.get_headers()
 
-    axios.delete(`http://127.0.0.1:8000/api/TODO/${id}`, { headers })
+    axios.delete(`http://95.163.243.80:8080/api/TODO/${id}`, { headers })
       .then(response => {
         this.load_data()
       }).catch(error => console.log(error))
@@ -90,7 +90,7 @@ class App extends React.Component {
   }
 
   get_token(username, password) {
-    axios.post('http://127.0.0.1:8000/api-token-auth/', {
+    axios.post('http://95.163.243.80:8080/api-token-auth/', {
       username: username,
       password: password
     })
@@ -113,16 +113,16 @@ class App extends React.Component {
 
     const headers = this.get_headers()
 
-    axios.get('http://127.0.0.1:8000/api/users/', { headers }).then(response => {
+    axios.get('http://95.163.243.80:8080/api/users/', { headers }).then(response => {
       this.setState({ "users": response.data.results })
     }).catch(error => console.log(error))
 
-    axios.get('http://127.0.0.1:8000/api/Project/', { headers })
+    axios.get('http://95.163.243.80:8080/api/Project/', { headers })
       .then(response => {
         this.setState({ "projects": response.data.results })
       }).catch(error => console.log(error))
 
-    axios.get('http://127.0.0.1:8000/api/TODO/', { headers })
+    axios.get('http://95.163.243.80:8080/api/TODO/', { headers })
       .then(response => {
         this.setState({ "todos": response.data.results })
       }).catch(error => console.log(error))
